@@ -7,3 +7,8 @@ export type Search = {
   isSearching: boolean;
   errorText?: string;
 };
+export type SearchFulfilled = SearchResponse;
+export type SearchRejected = {
+  error?: string;
+  message?: string;
+};
