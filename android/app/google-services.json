@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "390963469411",
+    "project_id": "findaphoto-5dd55",
+    "storage_bucket": "findaphoto-5dd55.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:390963469411:android:8a0df1b63d0709f02dec56",
+        "android_client_info": {
+          "package_name": "com.findaphoto"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "390963469411-lrlnmg9qgfabt6elo1e3oh38eh6nk8r5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSIz7POWo6PDtmLmTRjZVr9Jmpa7Aw734"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "390963469411-lrlnmg9qgfabt6elo1e3oh38eh6nk8r5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "390963469411-oic88n4g52tb8sm4nkkpnpoguk9b31re.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.FindAPhoto"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
