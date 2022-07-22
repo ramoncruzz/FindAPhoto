@@ -27,6 +27,7 @@
     "react-native-safe-area-context": "^4.3.1",
     "react-native-screens": "^3.15.0",
     "react-native-vector-icons": "^9.2.0",
+    "react-redux": "^8.0.2",
     "validate-color": "^2.2.1"
   },
   "devDependencies": {
@@ -52,7 +53,9 @@
   },
   "jest": {
     "preset": "react-native",
-    "testMatch":["**/__tests__/**/?(*.)+(test).(js|jsx|ts|tsx)"],
+    "testMatch": [
+      "**/__tests__/**/?(*.)+(test).(js|jsx|ts|tsx)"
+    ],
     "moduleFileExtensions": [
       "ts",
       "tsx",

@@ -23,7 +23,7 @@ export type Hit = {
   userImageURL: string;
 };
 
-export type SearchResponse = {
+export interface SearchResponse {
   total: number;
   totalHits: number;
   hits: Hit[];
