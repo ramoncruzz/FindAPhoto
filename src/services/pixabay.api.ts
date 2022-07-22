@@ -4,7 +4,7 @@ import {SearchResponse} from '../utils/types';
 const SearchPhoto = (
   key: string,
   term: string,
-  imageType: string,
+  imageType?: 'all' | 'photo' | 'illustration' | 'vector',
 ): Promise<SearchResponse> =>
   new Promise<SearchResponse>((resolve, reject) => {
     service
