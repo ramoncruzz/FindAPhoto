@@ -16,7 +16,7 @@ const SearchPhoto = (
         },
       })
       .then(response => {
-        resolve(response.data);
+        resolve({...response.data, term});
       })
       .catch((error: any) => reject(error));
   });

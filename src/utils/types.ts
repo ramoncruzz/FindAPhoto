@@ -24,7 +24,8 @@ export type Hit = {
 };
 
 export interface SearchResponse {
+  term: string;
   total: number;
   totalHits: number;
   hits: Hit[];
-};
+}
