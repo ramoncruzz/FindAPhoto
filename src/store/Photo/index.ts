@@ -1,6 +1,7 @@
 import {createSlice, PayloadAction, createAsyncThunk} from '@reduxjs/toolkit';
 import {SearchPhoto} from '../../services/pixabay.api';
 import {Search, SearchFulfilled} from './types';
+import {RootState} from '../../store/reducers';
 
 export const initialState: Search = {
   term: undefined,
@@ -12,10 +13,13 @@ export const initialState: Search = {
 
 export const getPhoto = createAsyncThunk(
   'searching/photo',
-  async (term: string) => {
-    const key = '1256271-c8154b0ac1a6d22ff35dbd798';
+  async (term: string, thunkAPI) => {
+    const {
+      environment: {apiKey},
+    } = thunkAPI.getState() as RootState;
     const type = 'photo';
-    const response = await SearchPhoto(key, term, type);
+    console.log(` key ${apiKey}`);
+    const response = await SearchPhoto(apiKey || '', term, type);
     return response;
   },
 );
