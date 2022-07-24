@@ -1,5 +1,5 @@
 import {SearchPhoto} from '../../src/services/pixabay.api';
-
+jest.mock('react-native');
 jest.mock('react-native-config', () => {
   return {
     API_HOST: 'https://pixabay.com/',
