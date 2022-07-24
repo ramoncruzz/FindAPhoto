@@ -7,7 +7,11 @@ const Home: React.FC = (): JSX.Element => {
   return (
     <View style={{flex: 1, backgroundColor: 'red'}}>
       <Text>home</Text>
-      <Button title="buscar" onPress={() => dispatch(getPhoto('street'))} />
+      <Button
+        testID="btn"
+        title="buscar"
+        onPress={() => dispatch(getPhoto('street'))}
+      />
     </View>
   );
 };

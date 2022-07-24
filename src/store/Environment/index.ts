@@ -5,7 +5,7 @@ export const initialState: envMobile = {
   apiKey: undefined,
 };
 
-export const environmentSlice = createSlice({
+const environmentSlice = createSlice({
   name: 'environment',
   initialState,
   reducers: {
@@ -18,4 +18,4 @@ export const environmentSlice = createSlice({
   },
 });
 export const {setEnvironment} = environmentSlice.actions;
-export default environmentSlice;
+export default environmentSlice.reducer;

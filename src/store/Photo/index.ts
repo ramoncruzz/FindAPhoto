@@ -1,9 +1,9 @@
 import {createSlice, PayloadAction, createAsyncThunk} from '@reduxjs/toolkit';
 import {SearchPhoto} from '../../services/pixabay.api';
-import {Search, SearchFulfilled} from './types';
+import {Search, SearchState, SearchFulfilled} from './types';
 import {RootState} from '../../store/reducers';
 
-export const initialState: Search = {
+export const initialState: SearchState = {
   term: undefined,
   result: undefined,
   current: false,
@@ -18,13 +18,12 @@ export const getPhoto = createAsyncThunk(
       environment: {apiKey},
     } = thunkAPI.getState() as RootState;
     const type = 'photo';
-    console.log(` key ${apiKey}`);
     const response = await SearchPhoto(apiKey || '', term, type);
     return response;
   },
 );
 
-export const photoSlice = createSlice({
+const photoSlice = createSlice({
   name: 'photoSearch',
   initialState,
   reducers: {
@@ -34,14 +33,14 @@ export const photoSlice = createSlice({
     },
   },
   extraReducers: builder => {
-    builder.addCase(getPhoto.pending, (state: Search) => {
+    builder.addCase(getPhoto.pending, (state: SearchState) => {
       const newState = {...state};
       newState.isSearching = true;
       return newState;
     });
     builder.addCase(
       getPhoto.fulfilled,
-      (state: Search, action: PayloadAction<SearchFulfilled>) => {
+      (state: SearchState, action: PayloadAction<SearchFulfilled>) => {
         const newState = {...state};
         newState.isSearching = false;
         newState.result = action.payload;
@@ -50,7 +49,7 @@ export const photoSlice = createSlice({
     );
     builder.addCase(
       getPhoto.rejected,
-      (state: Search, _action: PayloadAction<any>) => {
+      (state: SearchState, _action: PayloadAction<any>) => {
         const newState = {...state};
         newState.isSearching = false;
         newState.errorText = 'try again';
@@ -60,3 +59,4 @@ export const photoSlice = createSlice({
   },
 });
 export const {clean} = photoSlice.actions;
+export default photoSlice.reducer;
