@@ -8,7 +8,7 @@ const SearchPhoto = (
 ): Promise<SearchResponse> =>
   new Promise<SearchResponse>((resolve, reject) => {
     service
-      .get<SearchResponse>('/api/', {
+      .get<SearchResponse>('api/', {
         params: {
           key,
           q: encodeURIComponent(term),
@@ -16,7 +16,7 @@ const SearchPhoto = (
         },
       })
       .then(response => {
-        resolve(response.data);
+        resolve({...response.data, term});
       })
       .catch((error: any) => reject(error));
   });

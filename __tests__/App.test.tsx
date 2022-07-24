@@ -5,10 +5,17 @@
 import 'react-native';
 import React from 'react';
 import {Home} from '../src/pages';
-
-// Note: test renderer must be required after react-native.
-import renderer from 'react-test-renderer';
+import {Provider} from 'react-redux';
+import {render} from '@testing-library/react-native';
+import store from '../src/store';
+// import renderer from 'react-test-renderer';
 
 it('renders correctly', () => {
-  renderer.create(<Home />);
+  const redux = (
+    <Provider store={store}>
+      <Home />
+    </Provider>
+  );
+  render(redux);
+  // renderer.create(<Home />);
 });
