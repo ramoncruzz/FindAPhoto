@@ -2,6 +2,7 @@ import React from 'react';
 import {FlatList, StyleSheet} from 'react-native';
 import {Item, Image} from '../atoms';
 import {Hit} from '../../utils/types';
+import {trackImage, trackComponent} from '../../utils/trackTestID';
 
 export interface Props {
   images: Array<Hit>;
@@ -19,9 +20,11 @@ const ImageGrid: React.FC<Props> = ({images, onPress, testID}): JSX.Element => {
       testID={testID}
       data={images}
       renderItem={({item, index}) => (
-        <Item testID={`${testID}_item_${index}`} onPress={() => onPress(item)}>
+        <Item
+          testID={trackComponent(testID, String(index))}
+          onPress={() => onPress(item)}>
           <Image
-            testID={`${testID}_img_${index}`}
+            testID={trackImage(testID, String(index))}
             url={item.webformatURL}
             width="100%"
             height={300}

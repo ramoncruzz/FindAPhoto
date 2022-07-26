@@ -3,7 +3,7 @@ import {View, Text, Dimensions} from 'react-native';
 import {Div} from 'react-native-magnus';
 import {getPhoto} from '../store/Photo';
 import {useAppDispatch, useTypedSelector} from '../store';
-import {TextField, Image, Item, Button} from '../components/atoms';
+import {TextField, Image, Item, Button, Header} from '../components/atoms';
 import {ImageGrid, Search} from '../components/molecules';
 import {Hit} from '../utils/types';
 const {height, width} = Dimensions.get('screen');
@@ -192,6 +192,16 @@ const Home: React.FC = (): JSX.Element => {
   return (
     <View style={{flex: 1, backgroundColor: 'white'}}>
       <Text>{text}</Text>
+      <Header
+        testID="header"
+        title="Find a Photo"
+        onPressLeft={() => {
+          console.log('left');
+        }}
+        onPressRight={() => {
+          console.log('right');
+        }}
+      />
       {/* <TextField
         testID="textInput"
         placeholder="placeholder"
@@ -211,8 +221,8 @@ const Home: React.FC = (): JSX.Element => {
           onPress={() => dispatch(getPhoto('street'))}
         />
       </Div> */}
-      <Search testID="Search" onPressCancel={() => {}} onPressGo={setText} />
-      <ImageGrid testID="grid" images={imagens} onPress={onPress} />
+      {/* <Search testID="Search" onPressCancel={() => {}} onPressGo={setText} />
+      <ImageGrid testID="grid" images={imagens} onPress={onPress} /> */}
       {/* <ImageGrid>
         <Image
           width="100%"

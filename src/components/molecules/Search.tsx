@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Div} from 'react-native-magnus';
 import {TextField, Button} from '../atoms';
-import {trackButton, trackComponent, trackInput} from '../../utils/trackTestID';
+import {trackButton, trackInput} from '../../utils/trackTestID';
 
 export interface Props {
   onPressGo: (term: string) => void;
@@ -16,7 +16,7 @@ const Search: React.FC<Props> = ({
 }): JSX.Element => {
   const [term, setTerm] = useState<string>('');
   return (
-    <Div bg="gray" testID={testID}>
+    <Div testID={testID}>
       <TextField onChangeText={setTerm} testID={trackInput(testID, 'search')} />
       <Div flexDir="row" justifyContent="space-around" m={5}>
         <Button
