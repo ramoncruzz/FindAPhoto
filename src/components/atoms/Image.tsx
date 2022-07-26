@@ -9,13 +9,16 @@ export interface Props {
   shadow?: boolean;
   width?: number | string;
   height?: number | string;
+  testID: string;
 }
 
 const ImageComponent: React.FC<Props> = (props): JSX.Element => {
-  const {url, width, height, roundedBorder, circleShape, shadow} = props;
+  const {url, width, height, roundedBorder, circleShape, shadow, testID} =
+    props;
   if (props.children) {
     return (
       <Div
+        testID={testID}
         shadow={shadow ? 'sm' : undefined}
         rounded={roundedBorder ? 'md' : circleShape ? 'xl' : undefined}
         h={height}
@@ -27,6 +30,7 @@ const ImageComponent: React.FC<Props> = (props): JSX.Element => {
   }
   return (
     <Image
+      testID={testID}
       resizeMode="contain"
       rounded={roundedBorder ? 'circle' : undefined}
       h={height}

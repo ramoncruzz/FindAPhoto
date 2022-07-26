@@ -192,20 +192,26 @@ const Home: React.FC = (): JSX.Element => {
   return (
     <View style={{flex: 1, backgroundColor: 'white'}}>
       <Text>{text}</Text>
-      <TextField placeholder="placeholder" onChangeText={setText} />
+      <TextField
+        testID="textInput"
+        placeholder="placeholder"
+        onChangeText={setText}
+      />
       <Div row>
         <Button
+          testID="button_1"
           type="clean"
           text="Cancel"
           onPress={() => dispatch(getPhoto('street'))}
         />
         <Button
+          testID="button_1"
           type="go"
           text="Search"
           onPress={() => dispatch(getPhoto('street'))}
         />
       </Div>
-      <ImageGrid images={imagens} onPress={onPress} />
+      <ImageGrid testID="grid" images={imagens} onPress={onPress} />
       {/* <ImageGrid>
         <Image
           width="100%"

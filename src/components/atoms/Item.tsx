@@ -4,6 +4,7 @@ import {TouchableOpacity, StyleSheet} from 'react-native';
 export interface Props {
   children: React.ReactNode;
   onPress: () => void;
+  testID: string;
 }
 
 const style = StyleSheet.create({
@@ -21,9 +22,9 @@ const style = StyleSheet.create({
     elevation: 5,
   },
 });
-const Item: React.FC<Props> = ({children, onPress}): JSX.Element => {
+const Item: React.FC<Props> = ({children, onPress, testID}): JSX.Element => {
   return (
-    <TouchableOpacity style={style.main} onPress={onPress}>
+    <TouchableOpacity testID={testID} style={style.main} onPress={onPress}>
       {children}
     </TouchableOpacity>
   );

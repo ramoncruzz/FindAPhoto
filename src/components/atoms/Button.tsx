@@ -5,12 +5,19 @@ export interface Props {
   text: string;
   onPress: () => void;
   type: 'go' | 'clean';
+  testID: string;
 }
 
-const Button: React.FC<Props> = ({text, type, onPress}): JSX.Element => {
+const Button: React.FC<Props> = ({
+  text,
+  type,
+  onPress,
+  testID,
+}): JSX.Element => {
   if (type === 'clean') {
     return (
       <Btn
+        testID={testID}
         mt="lg"
         ml="lg"
         px="xl"
@@ -25,6 +32,7 @@ const Button: React.FC<Props> = ({text, type, onPress}): JSX.Element => {
   }
   return (
     <Btn
+      testID={testID}
       mt="lg"
       ml="lg"
       px="xl"
