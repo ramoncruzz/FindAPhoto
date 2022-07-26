@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {StatusBar} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-
+import {Header} from '../components/atoms';
 import {Home} from '../pages';
 import {useFirebase} from '../hooks';
 
@@ -10,7 +10,21 @@ const Stack = createNativeStackNavigator();
 
 const RootStack = () => (
   <Stack.Navigator>
-    <Stack.Screen name="Home" component={Home} />
+    <Stack.Screen
+      component={Home}
+      name="Find a Photo"
+      options={{
+        header: () => (
+          <Header
+            testID="header"
+            title="Find a Photo"
+            onPressRight={() => {
+              console.log('right');
+            }}
+          />
+        ),
+      }}
+    />
   </Stack.Navigator>
 );
 
@@ -21,7 +35,7 @@ const App = () => {
   }, [loadEnvironmet]);
   return (
     <NavigationContainer>
-      <StatusBar barStyle="default" backgroundColor="transparent" />
+      <StatusBar barStyle="dark-content" backgroundColor="white" />
       <RootStack />
     </NavigationContainer>
   );

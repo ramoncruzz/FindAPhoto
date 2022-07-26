@@ -191,8 +191,8 @@ const Home: React.FC = (): JSX.Element => {
   ];
   return (
     <View style={{flex: 1, backgroundColor: 'white'}}>
-      <Text>{text}</Text>
-      <Header
+      <ImageGrid testID="grid" images={imagens} onPress={onPress} />
+      {/* <Header
         testID="header"
         title="Find a Photo"
         onPressLeft={() => {
@@ -201,7 +201,7 @@ const Home: React.FC = (): JSX.Element => {
         onPressRight={() => {
           console.log('right');
         }}
-      />
+      /> */}
       {/* <TextField
         testID="textInput"
         placeholder="placeholder"
@@ -222,7 +222,7 @@ const Home: React.FC = (): JSX.Element => {
         />
       </Div> */}
       {/* <Search testID="Search" onPressCancel={() => {}} onPressGo={setText} />
-      <ImageGrid testID="grid" images={imagens} onPress={onPress} /> */}
+       */}
       {/* <ImageGrid>
         <Image
           width="100%"

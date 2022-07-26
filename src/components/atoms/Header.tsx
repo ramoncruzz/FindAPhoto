@@ -17,8 +17,10 @@ const Header: React.FC<Props> = ({
 }): JSX.Element => {
   return (
     <HD
+      mt={40}
       testID={testID}
       p="lg"
+      w="100%"
       borderBottomWidth={1}
       borderBottomColor="gray200"
       alignment="center"
