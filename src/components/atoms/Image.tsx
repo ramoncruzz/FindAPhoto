@@ -27,6 +27,7 @@ const ImageComponent: React.FC<Props> = (props): JSX.Element => {
   }
   return (
     <Image
+      resizeMode="contain"
       rounded={roundedBorder ? 'circle' : undefined}
       h={height}
       w={width}
