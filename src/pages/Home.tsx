@@ -1,8 +1,9 @@
 import React from 'react';
-import {View, Text, Button, Dimensions} from 'react-native';
+import {View, Text, Dimensions} from 'react-native';
+import {Div} from 'react-native-magnus';
 import {getPhoto} from '../store/Photo';
 import {useAppDispatch, useTypedSelector} from '../store';
-import {TextField, Image, Item} from '../components/atoms';
+import {TextField, Image, Item, Button} from '../components/atoms';
 import {ImageGrid} from '../components/molecules';
 import {Hit} from '../utils/types';
 const {height, width} = Dimensions.get('screen');
@@ -192,11 +193,18 @@ const Home: React.FC = (): JSX.Element => {
     <View style={{flex: 1, backgroundColor: 'white'}}>
       <Text>{text}</Text>
       <TextField placeholder="placeholder" onChangeText={setText} />
-      <Button
-        testID="btn2"
-        title="buscar"
-        onPress={() => dispatch(getPhoto('street'))}
-      />
+      <Div row>
+        <Button
+          type="clean"
+          text="Cancel"
+          onPress={() => dispatch(getPhoto('street'))}
+        />
+        <Button
+          type="go"
+          text="Search"
+          onPress={() => dispatch(getPhoto('street'))}
+        />
+      </Div>
       <ImageGrid images={imagens} onPress={onPress} />
       {/* <ImageGrid>
         <Image
