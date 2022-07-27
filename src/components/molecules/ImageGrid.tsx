@@ -1,6 +1,6 @@
 import React from 'react';
 import {FlatList, StyleSheet} from 'react-native';
-import {Item, Image} from '../atoms';
+import {Item, Image, Empty} from '../atoms';
 import {Hit} from '../../utils/types';
 import {trackImage, trackComponent} from '../../utils/trackTestID';
 
@@ -32,6 +32,12 @@ const ImageGrid: React.FC<Props> = ({images, onPress, testID}): JSX.Element => {
         </Item>
       )}
       style={styles.list}
+      ListEmptyComponent={() => (
+        <Empty
+          text="Touch on Search Icon Above, please."
+          testID={trackComponent(testID, 'empty')}
+        />
+      )}
     />
   );
 };
