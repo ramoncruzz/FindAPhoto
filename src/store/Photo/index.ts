@@ -19,6 +19,7 @@ export const getPhoto = createAsyncThunk(
       environment: {apiKey},
     } = thunkAPI.getState() as RootState;
     const type = 'photo';
+    console.log(`akikey ${apiKey}`);
     const response = await SearchPhoto(apiKey || '', term, type);
     return response;
   },

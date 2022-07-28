@@ -7,6 +7,7 @@ const SearchPhoto = (
   imageType?: 'all' | 'photo' | 'illustration' | 'vector',
 ): Promise<SearchResponse> =>
   new Promise<SearchResponse>((resolve, reject) => {
+    console.log(`fetch ${term}`);
     service
       .get<SearchResponse>('api/', {
         params: {
@@ -16,9 +17,12 @@ const SearchPhoto = (
         },
       })
       .then(response => {
+        console.log(`responde ${response.data}`);
         resolve({...response.data, term});
       })
-      .catch((error: any) => reject(error));
+      .catch((error: any) => {
+        console.log(`ERROR ${error}`);
+        reject(error)});
   });
 
 export {SearchPhoto};
