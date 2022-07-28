@@ -13,6 +13,7 @@ export interface SearchState {
   result: SearchResponse | undefined;
   current: boolean;
   isSearching: boolean;
+  loading: boolean;
   errorText?: string | undefined;
 }
 
