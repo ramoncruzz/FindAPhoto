@@ -81,7 +81,7 @@ yarn ios
 yarn android
 ```
 
-# Next steps
+# know more
 
 There are other really cool themes that I train in a sandbox project, Catinder, in it you'll find things like.
 
